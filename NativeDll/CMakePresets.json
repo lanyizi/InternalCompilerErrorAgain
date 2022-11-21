@@ -53,6 +53,15 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "MinSizeRel"
             }
+        },
+        {
+            "name": "x86-release-preprocessor",
+            "displayName": "x86 Release Preprocessor",
+            "description": "用 Visual Studio 开发环境预处理源代码。(Release)",
+            "inherits": "x86-release",
+            "cacheVariables": {
+                "PREPROCESS": "ON"
+            }
         }
     ],
     "buildPresets": [
@@ -60,7 +69,15 @@
             "name": "build-x86-release",
             "displayName": "Build x86 Release",
             "description": "使用 MSVC 编译发布版本",
-            "configurePreset": "x86-release"
+            "configurePreset": "x86-release",
+            "configuration": "Release"
+        },
+        {
+            "name": "preprocess-x86-release",
+            "inherits": "build-x86-release",
+            "displayName": "Preprocessor x86 Release",
+            "description": "使用 MSVC 预处理原代码",
+            "configurePreset": "x86-release-preprocessor"
         },
         {
             "name": "build-x86-debug",
