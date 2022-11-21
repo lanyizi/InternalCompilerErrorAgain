@@ -27,7 +27,7 @@ jobs:
         uses: lukka/run-vcpkg@v10
         with:
           # Specify the full SHA-1 hash of a Git commit (not a branch name, nor a tag!) that establishes which version of vcpkg needs to be used. When using vcpkg as a Git submodule, this input is *not* needed as implicitly specified by the submodule.
-          vcpkgGitCommitId: '88b1071e39f13b632644d9d953738d345a4ac055'
+          vcpkgGitCommitId: '34d2cf7e62d781f4bcb9c7f44f4d2389f568e92b'
 
       - name: run-cmake
         uses: lukka/run-cmake@v10
