@@ -37,9 +37,7 @@ jobs:
           configurePreset: 'x86-release'
           # The name of the build preset. Optional.
           buildPreset: 'build-x86-release'
-
-      - name: Show files
-        run: Get-ChildItem -Recurse
+        continue-on-error: true
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
