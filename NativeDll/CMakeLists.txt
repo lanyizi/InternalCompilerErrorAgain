@@ -41,3 +41,6 @@ set_target_properties("${PROJECT_NAME}_Preprocessed" PROPERTIES MSVC_RUNTIME_LIB
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_CXX_COMPILER} /Bv > "${CMAKE_BINARY_DIR}/COMPILER_VERSION.txt" 2>&1 || (exit 0)
 )
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND cmd /c ver > "${CMAKE_BINARY_DIR}/WINDOWS_VERSION.txt" 2>&1 || (exit 0)
+)

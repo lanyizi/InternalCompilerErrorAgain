@@ -39,6 +39,9 @@ jobs:
           buildPreset: 'build-x86-release'
         continue-on-error: true
 
+      - name: Show files
+        run: Get-ChildItem -Recurse
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
