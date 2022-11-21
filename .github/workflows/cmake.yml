@@ -24,13 +24,13 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: Restore vcpkg artifacts, or setup vcpkg for building artifacts
-        uses: lukka/run-vcpkg@v10.3
+        uses: lukka/run-vcpkg@v10
         with:
           # Specify the full SHA-1 hash of a Git commit (not a branch name, nor a tag!) that establishes which version of vcpkg needs to be used. When using vcpkg as a Git submodule, this input is *not* needed as implicitly specified by the submodule.
           vcpkgGitCommitId: '88b1071e39f13b632644d9d953738d345a4ac055'
 
       - name: run-cmake
-        uses: lukka/run-cmake@v10.0
+        uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: NativeDll/CMakeLists.txt
           # The name of the configure preset. Optional.
@@ -39,12 +39,9 @@ jobs:
           buildPreset: 'build-x86-release'
         continue-on-error: true
 
-      - name: Show files
-        run: Get-ChildItem -Recurse
-
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
           # A file, directory or wildcard pattern that describes what to upload
-          path: NativeDll/out/build/x86-release/Release/*
+          path: NativeDll/out/build/x86-release/
           if-no-files-found: warn
