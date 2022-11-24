@@ -34,7 +34,7 @@ jobs:
         continue-on-error: true
 
       - name: Build with CMake
-        run: cd NativeDll && cmake --preset=x86-release-preprocessor && cmake --build --preset=process-x86-release
+        run: cd NativeDll && cmake --preset=x86-release-preprocessor && cmake --build --preset=preprocess-x86-release
         continue-on-error: true
 
       - name: Upload a Build Artifact
