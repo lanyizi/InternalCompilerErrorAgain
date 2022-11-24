@@ -29,24 +29,12 @@ jobs:
           # Specify the full SHA-1 hash of a Git commit (not a branch name, nor a tag!) that establishes which version of vcpkg needs to be used. When using vcpkg as a Git submodule, this input is *not* needed as implicitly specified by the submodule.
           vcpkgGitCommitId: '34d2cf7e62d781f4bcb9c7f44f4d2389f568e92b'
 
-      - name: run-cmake
-        uses: lukka/run-cmake@v10
-        with:
-          cmakeListsTxtPath: NativeDll/CMakeLists.txt
-          # The name of the configure preset. Optional.
-          configurePreset: 'x86-release'
-          # The name of the build preset. Optional.
-          buildPreset: 'build-x86-release'
+      - name: Build with CMake
+        run: cd NativeDll && cmake --preset=x86-release && cmake --build --preset=build-x86-release
         continue-on-error: true
 
-      - name: run-cmake
-        uses: lukka/run-cmake@v10
-        with:
-          cmakeListsTxtPath: NativeDll/CMakeLists.txt
-          # The name of the configure preset. Optional.
-          configurePreset: 'x86-release-preprocessor'
-          # The name of the build preset. Optional.
-          buildPreset: 'preprocess-x86-release'
+      - name: Build with CMake
+        run: cd NativeDll && cmake --preset=x86-release-preprocessor && cmake --build --preset=process-x86-release
         continue-on-error: true
 
       - name: Upload a Build Artifact
